@@ -52,10 +52,12 @@ def forward(i, step):
 def backward(i, step):
     return step * i
 
-''' @first_diff()  Works out the first differential for Taylor expansion
-                   for function f[x],
-    @return        double value of (f[i - 1] - f[i]) / step_size[j] '''
+''' @diff()  Works out the differential
+    @return  Value of (f[i] - f[i - 1]) / step '''
 def diff(f1, f0, step):
-    return (f1 - f0) / step
+    if step != 0.0:
+        return (f1 - f0) / step
+    else:
+        return f1 - f0
 
 print_scheme_table()
